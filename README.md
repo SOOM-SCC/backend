@@ -1,6 +1,7 @@
 # SOOM Backend
+Node.js + Express 기반 백엔드 서버 레포지토리입니다.
 
-Node.js + Express 기반 백엔드 서버 레포지토리입니다.  
+
 
 ## 📁 프로젝트 구조
 
