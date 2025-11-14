@@ -1,3 +1,11 @@
+---
+name: Default Issue
+about: 기본 이슈 템플릿입니다.
+title: "[ISSUE] "
+labels: ""
+assignees: ""
+---
+
 ## 📌 개요
 <!-- 어떤 이슈인지 한 문장으로 설명해주세요 -->
 
