@@ -1,4 +1,3 @@
-// src/common/base.controller.js
 const { success } = require("./apiResponse");
 
 class BaseController {

@@ -1,5 +1,3 @@
-// src/utils/apiResponse.js
-
 // 성공 응답
 function success(res, data = null, message = "요청이 성공적으로 처리되었습니다.", statusCode = 200) {
   return res.status(statusCode).json({
