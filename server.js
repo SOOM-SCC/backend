@@ -8,12 +8,12 @@ app.use(express.json());
 const favoriteRoute = require("./src/routes/favoriteRoute");
 app.use("/favorites", favoriteRoute);
 
-// routes
-// app.get("/", (req, res) => {
-//     res.send("Hello, Node.js server!");
-// });
+// 내 관련 라우트
+const meRoute = require("./src/routes/meRoute");
+app.use("/me", meRoute);
 
-// handlers
+// 에러 핸들러 미들웨어
+const { errorHandler, notFoundHandler } = require("./src/middlewares/errorHandler");
 app.use(notFoundHandler);
 app.use(errorHandler);
 
