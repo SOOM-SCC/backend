@@ -15,7 +15,7 @@ class BaseService {
   // 단일 조회
   async getById(id) {
     const data = await this.model.findUnique({
-      where: { id: Number(id) },
+      where: { id: id },
     });
 
     if (!data) {
@@ -36,7 +36,7 @@ class BaseService {
   async update(id, dto) {
     try {
       return await this.model.update({
-        where: { id: Number(id) },
+        where: { id: id },
         data: dto,
       });
     } catch (e) {
@@ -48,7 +48,7 @@ class BaseService {
   async delete(id) {
     try {
       return await this.model.delete({
-        where: { id: Number(id) },
+        where: { id: id },
       });
     } catch (e) {
       throw new ApiError(ErrorCodes.NOT_FOUND);
