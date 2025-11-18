@@ -7,7 +7,7 @@ class EvidenceController extends BaseController {
         super(evidenceService); // BaseService 기능 자동 상속
     }
 
-    async upload(req, res, next) {
+    upload = async (req, res, next) => {
         try {
             const userId = req.user.id;
 
@@ -22,11 +22,11 @@ class EvidenceController extends BaseController {
         } catch (err) {
             next(err);
         }
-    }
+    };
 
-    async getDetail(req, res, next) {
+    getDetail = async (req, res, next) => {
         try {
-            const id = req.params.id;
+            const id = parseInt(req.params.id);
             const evidence = await this.service.getEvidenceById(id);
             res.json(evidence);
         } catch (err) {
@@ -34,7 +34,7 @@ class EvidenceController extends BaseController {
         }
     }
 
-    async getMyList(req, res, next) {
+    getMyList = async (req, res, next) => {
         try {
             const userId = req.user?.id;
             const list = await this.service.getMyEvidences(userId);
@@ -44,10 +44,10 @@ class EvidenceController extends BaseController {
         }
     }
 
-    async delete(req, res, next) {
+    delete = async (req, res, next) => {
         try {
             const userId = req.user.id;
-            const evidenceId = req.params.id;
+            const evidenceId = parseInt(req.params.id);
             await this.service.softDeleteEvidence(userId, evidenceId);
             res.json(success("증거가 삭제되었습니다."));
         } catch (err) {

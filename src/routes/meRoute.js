@@ -27,8 +27,6 @@ router.get("/favorites", authMiddleware, favoriteController.getMyFavorites);
 
 // [GET] /me/evidences
 // 내 증거 목록 조회
-router.get("/evidences", (req, res, next) =>
-    evidenceController.getMyList(req, res, next)
-);
+router.get("/evidences", evidenceController.getMyList);
 
 module.exports = router;

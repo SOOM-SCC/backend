@@ -75,6 +75,6 @@ router.delete("/:favoriteId", authMiddleware, controller.deleteFavorite);
  *       401:
  *         description: 인증 필요
  */
-router.get("/me/favorites", authMiddleware, controller.getMyFavorites);
+// router.get("/me/favorites", authMiddleware, controller.getMyFavorites);
 
 module.exports = router;
