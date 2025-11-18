@@ -48,6 +48,21 @@ class FavoriteService extends BaseService {
             where: { id: favorite.id },
         });
     }
+
+    // 3. 즐겨찾기 조회
+    async getMyFavorites(userId) {
+        if (!userId) {
+            throw new ApiError(
+                ErrorCodes.BAD_REQUEST,
+                "필수 정보가 누락되었습니다."
+            );
+        }
+
+        return this.model.findMany({
+            where: { user_id: userId },
+            orderBy: { created_at: "desc" },
+        });
+    }
 }
 
 module.exports = new FavoriteService();

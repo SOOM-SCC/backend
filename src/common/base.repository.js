@@ -11,7 +11,7 @@ class BaseRepository {
 
   async findById(id) {
     return this.model.findUnique({
-      where: { id: Number(id) },
+      where: { id: id },
     });
   }
 
@@ -23,14 +23,14 @@ class BaseRepository {
 
   async update(id, data) {
     return this.model.update({
-      where: { id: Number(id) },
+      where: { id: id },
       data,
     });
   }
 
   async delete(id) {
     return this.model.delete({
-      where: { id: Number(id) },
+      where: { id: id },
     });
   }
 }
