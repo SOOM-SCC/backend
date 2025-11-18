@@ -5,10 +5,6 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
 
-// [GET] /me/favorites
-// 내 즐겨찾기 조회
-router.get("/favorites", favoriteController.getMyFavorites);
-
 /**
  * @swagger
  * /me/favorites:
@@ -23,21 +19,23 @@ router.get("/favorites", favoriteController.getMyFavorites);
  *       401:
  *         description: 인증 필요
  */
+// [GET] /me/favorites
+// 내 즐겨찾기 조회
 router.get("/favorites", authMiddleware, favoriteController.getMyFavorites);
 
 /**
  * @swagger
  * /me/evidences:
- * get:
- * summary: 내 증거 목록 조회
- * tags: [Me]
- * security:
- * - bearerAuth: []
- * responses:
- * 200:
- * description: 조회 성공
- * 401:
- * description: 인증 필요
+ *   get:
+ *     summary: 내 증거 목록 조회
+ *     tags: [Me]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: 조회 성공
+ *       401:
+ *         description: 인증 필요
  */
 // [GET] /me/evidences
 // 내 증거 목록 조회

@@ -23,8 +23,8 @@ const router = express.Router();
  *               - shelterName
  *             properties:
  *               shelterId:
- *                 type: integer
- *                 example: 1
+ *                 type: String
+ *                 example: "S12345"
  *               shelterName:
  *                 type: string
  *                 example: 서울시립보호소
@@ -60,21 +60,5 @@ router.post("/", authMiddleware, controller.addFavorite);
  *         description: 즐겨찾기를 찾을 수 없음
  */
 router.delete("/:favoriteId", authMiddleware, controller.deleteFavorite);
-
-/**
- * @swagger
- * /favorites/me/favorites:
- *   get:
- *     summary: 내 즐겨찾기 목록 조회
- *     tags: [Favorites]
- *     security:
- *       - bearerAuth: []
- *     responses:
- *       200:
- *         description: 조회 성공
- *       401:
- *         description: 인증 필요
- */
-// router.get("/me/favorites", authMiddleware, controller.getMyFavorites);
 
 module.exports = router;

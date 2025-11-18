@@ -11,6 +11,10 @@ class EvidenceService extends BaseService {
 
     // 🫧 evidence 업로드
     async uploadEvidence(userId, title, content, files) {
+        // 0.5~0.999 랜덤 점수
+        // 추후에 AI 기반 적합도 평가로 대체 필요
+        const suitability = 0.5 + Math.random() * 0.499;
+
         // 유효성 검사 및 파일 첨부 확인
         if (!userId || !title || !content) {
             throw new ApiError(ErrorCodes.BAD_REQUEST, "필수 정보 누락");
@@ -28,6 +32,7 @@ class EvidenceService extends BaseService {
                 user_id: userId,
                 title,
                 content,
+                suitability_score: suitability,
             },
         });
 
@@ -124,4 +129,4 @@ class EvidenceService extends BaseService {
     }
 }
 
-module.exports = EvidenceService;
+module.exports = new EvidenceService();

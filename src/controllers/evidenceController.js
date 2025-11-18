@@ -10,6 +10,7 @@ class EvidenceController extends BaseController {
     upload = async (req, res, next) => {
         try {
             const userId = req.user.id;
+            const { title, content } = req.body;
 
             const result = await this.service.uploadEvidence(
                 userId,
@@ -18,7 +19,7 @@ class EvidenceController extends BaseController {
                 req.files
             );
 
-            res.json(result);
+            return success(res, result, "증거 업로드 완료", 201);
         } catch (err) {
             next(err);
         }
@@ -28,32 +29,32 @@ class EvidenceController extends BaseController {
         try {
             const id = parseInt(req.params.id);
             const evidence = await this.service.getEvidenceById(id);
-            res.json(evidence);
+            return success(res, evidence, "증거 상세 조회 완료");
         } catch (err) {
             next(err);
         }
-    }
+    };
 
     getMyList = async (req, res, next) => {
         try {
             const userId = req.user?.id;
             const list = await this.service.getMyEvidences(userId);
-            res.json(list);
+            return success(res, list, "내 증거들 조회 완료");
         } catch (err) {
             next(err);
         }
-    }
+    };
 
     delete = async (req, res, next) => {
         try {
             const userId = req.user.id;
             const evidenceId = parseInt(req.params.id);
             await this.service.softDeleteEvidence(userId, evidenceId);
-            res.json(success("증거가 삭제되었습니다."));
+            success(res, null, "증거가 삭제되었습니다.");
         } catch (err) {
             next(err);
         }
-    }
+    };
 }
 
 module.exports = new EvidenceController();
