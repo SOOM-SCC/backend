@@ -1,6 +1,6 @@
 // src/middlewares/errorHandler.js
-const { fail } = require("../utils/apiResponse");
-const ApiError = require("../utils/apiError");
+const { fail } = require("../common/apiResponse");
+const ApiError = require("../common/apiError");
 
 function errorHandler(err, req, res, next) {
   console.error("🔥 Error:", err);
