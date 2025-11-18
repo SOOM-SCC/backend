@@ -20,6 +20,10 @@ app.use("/favorites", favoriteRoute);
 const meRoute = require("./src/routes/meRoute");
 app.use("/me", meRoute);
 
+// 증거 라우트
+const evidenceRoute = require("./src/routes/evidenceRoute");
+app.use("/evidences", evidenceRoute);
+
 // 에러 핸들러 미들웨어
 const notFoundHandler = require("./src/middlewares/notFoundHandler");
 const errorHandler = require("./src/middlewares/errorHandler");

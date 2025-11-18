@@ -47,7 +47,7 @@ model favorites {
   id           Int      @id @default(autoincrement())
   user_id      Int
   shelter_name String
-  shelter_id   Int
+  shelter_id   String
   created_at   DateTime @default(now())
 
   // Relations

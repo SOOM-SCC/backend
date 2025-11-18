@@ -1,8 +1,13 @@
 const express = require("express");
 const favoriteController = require("../controllers/favoriteController");
+const evidenceController = require("../controllers/evidenceController");
 const authMiddleware = require("../middlewares/authMiddleware");
 
 const router = express.Router();
+
+// [GET] /me/favorites
+// 내 즐겨찾기 조회
+router.get("/favorites", favoriteController.getMyFavorites);
 
 /**
  * @swagger
@@ -19,5 +24,9 @@ const router = express.Router();
  *         description: 인증 필요
  */
 router.get("/favorites", authMiddleware, favoriteController.getMyFavorites);
+
+// [GET] /me/evidences
+// 내 증거 목록 조회
+router.get("/evidences", evidenceController.getMyList);
 
 module.exports = router;

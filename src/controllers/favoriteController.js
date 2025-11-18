@@ -28,7 +28,7 @@ class FavoriteController extends BaseController {
     deleteFavorite = async (req, res, next) => {
         try {
             const userId = req.user.id;
-            const favoriteId = req.params.favoriteId;
+            const favoriteId = parseInt(req.params.favoriteId);
 
             await this.service.deleteFavorite(userId, favoriteId);
 
