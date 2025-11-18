@@ -3,6 +3,11 @@
 
 const ErrorCodes = {
     // 공통 에러
+    BAD_REQUEST: {
+        statusCode: 400,
+        message: "잘못된 요청입니다.",
+        code: "BAD_REQUEST",
+    },
     INVALID_INPUT: {
         statusCode: 400,
         message: "잘못된 요청입니다.",
@@ -41,6 +46,16 @@ const ErrorCodes = {
         statusCode: 401,
         message: "유효하지 않은 토큰입니다.",
         code: "INVALID_TOKEN",
+    },
+    INVALID_CREDENTIALS: {
+        statusCode: 401,
+        message: "이메일 또는 비밀번호가 올바르지 않습니다.",
+        code: "INVALID_CREDENTIALS",
+    },
+    PASSWORD_MISMATCH: {
+        statusCode: 401,
+        message: "비밀번호가 일치하지 않습니다.",
+        code: "PASSWORD_MISMATCH",
     },
 };
 
