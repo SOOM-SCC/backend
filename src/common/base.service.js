@@ -1,6 +1,6 @@
 // src/common/base.service.js
 const ApiError = require("./apiError");
-const ErrorCodes = require("./errorCodes");
+const ErrorCodes = require("../constants/errorCodes");
 
 class BaseService {
   constructor(model) {
