@@ -15,7 +15,7 @@ class FavoriteController extends BaseController {
 
             const data = await this.service.addFavorite(
                 userId,
-                shelterId,
+                String(shelterId),
                 shelterName
             );
 
